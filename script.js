@@ -24,6 +24,7 @@ function clickButton()
             case 'operator':
                 break;
             case 'clear':
+                resetCalculator();
                 break;
             case 'sign':
                 break;
@@ -63,3 +64,11 @@ function operate()
     };
 };
 
+function resetCalculator()
+{
+    let displayValue = 0;
+    let operator = null;
+    let operand1 = null;
+    let operand2 = null;
+    updateDisplay();
+};
