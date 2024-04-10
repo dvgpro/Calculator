@@ -1,4 +1,4 @@
-let display = 0;
+let displayValue = 0;
 let operator = null;
 let operand1 = null;
 let operand2 = null;
@@ -7,7 +7,7 @@ const buttons = document.querySelectorAll('button');
 
 function updateDisplay()
 {
-    displayBox.textContent = display;
+    displayBox.textContent = displayValue;
 };
 
 updateDisplay();
@@ -62,3 +62,4 @@ function operate()
             break;
     };
 };
+
