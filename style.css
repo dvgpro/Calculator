@@ -5,3 +5,17 @@ body
     align-items: center;
     font-family: monospace;
 }
+
+.calculator
+{
+    height: 700px;
+    width: 500px;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    border-radius: 10px;
+    background-color: rgb(65, 65, 65);
+    color: lightgrey;
+    display: flex;
+    flex-direction: column;
+}
