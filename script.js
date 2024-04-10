@@ -26,6 +26,9 @@ function clickButton()
                     updateDisplay();
                     break;
                 case this.classList.contains('operator'):
+                    getOperator(buttons[i].value);
+                    displayValue=0;
+                    updateDisplay;
                     break;
                 case this.classList.contains('clear'):
                     resetCalculator();
@@ -62,6 +65,7 @@ function getOperands(value)
         operand1 = displayValue;
     }
     else if (operand1!=null && operator!=null)
+    {
         if (displayValue==0||displayValue=='0')
         {
             displayValue = value
@@ -70,27 +74,45 @@ function getOperands(value)
         {
             displayValue += value;
         };
-    operand2 = displayValue;
+        operand2 = displayValue;
+        
+    };
 };
 
-function operate()
+function getOperator(value)
 {
+    operator=value;
+
+};
+
+function operate(operator, operand1, operand2)
+{
+    var total =0
     switch(operator)
     {
         case '+':
-            operand1 += operand2;
+            total = operand1 + operand2;
+            return total;
             break;
         case '-':
-            operand1 -= operand2;
+            total = operand1 - operand2;
+            return total;
             break;
         case '*':
-            operand1 *= operand2;
+            total = operand1 * operand2
             break;
         case '/':
-            operand1 /= operand2;
+            if (operand2==0) {
+                alert("Halt you've violated the law");
+                resetCalculator();
+            }else{
+                total = operand1 / operand2;
+                return total;
+            };
             break;
         case '^':
-            operand1 **= operand2;
+            total = operand1 ** operand2;
+            return total;
             break;
     };
 };
