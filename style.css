@@ -4,6 +4,7 @@ body
     justify-content: center;
     align-items: center;
     font-family: monospace;
+    background-color: rgb(124, 124, 124);
 }
 
 .calculator
@@ -18,4 +19,19 @@ body
     color: lightgrey;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display
+{
+    width: 450px;
+    height: 90px;
+    background-color: lightgrey;
+    color: rgb(65, 65, 65);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 45px;
+    font-weight: 700;
 }
