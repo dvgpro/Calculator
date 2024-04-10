@@ -4,45 +4,73 @@ body
     justify-content: center;
     align-items: center;
     font-family: monospace;
-    background-color: rgb(124, 124, 124);
+    background-color: #282828;
 }
 
 .calculator
 {
     height: 700px;
-    width: 500px;
+    width: 400px;
     border-style: solid;
     border-color: black;
     border-width: 10px;
     border-radius: 10px;
-    background-color: rgb(65, 65, 65);
+    background-color: #575757;
     color: lightgrey;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 20px;
 }
 
 .display
 {
-    width: 450px;
-    height: 90px;
+    width: 375px;
+    height: 70px;
     background-color: lightgrey;
     color: rgb(65, 65, 65);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 45px;
+    font-size: 55px;
     font-weight: 700;
+    color: black;
 }
 
 .main
 {
     display: flex;
-    flex-grow: 1;
-    justify-content: space-evenly;
+    width: 350px;
+    height: 430px;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
 
+button
+{
+    height: 70px;
+    width: 75px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    margin: 0px;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.enter-container
+{
+    width: 85%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.enter
+{
+    border-radius: 10px;
+    width: 120px;
+    height: 60px;
 }
