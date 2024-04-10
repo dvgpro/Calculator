@@ -40,3 +40,25 @@ function clickButton()
 };
 
 clickButton();
+
+function operate()
+{
+    switch(operator)
+    {
+        case '+':
+            operand1 += operand2;
+            break;
+        case '-':
+            operand1 -= operand2;
+            break;
+        case '*':
+            operand1 *= operand2;
+            break;
+        case '/':
+            operand1 /= operand2;
+            break;
+        case '^':
+            operand1 **= operand2;
+            break;
+    };
+};
