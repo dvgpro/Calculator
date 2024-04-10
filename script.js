@@ -17,30 +17,38 @@ function clickButton()
 {
     for (let i=0; i<buttons.length; i++)
     {
-        switch (buttons[i].classList)
+        buttons[i].addEventListener('click', function()
         {
-            case 'operand':
-                break;
-            case 'operator':
-                break;
-            case 'clear':
-                resetCalculator();
-                break;
-            case 'sign':
-                break;
-            case 'percent':
-                break;
-            case 'decimal':
-                break;
-            case 'backspace':
-                break;
-            case 'enter':
-                break;
-        };
+            var cls = this.classList;
+            switch (true)
+            {
+                case cls.contains('operand'):
+                    getOperands(buttons[i].value);
+                    updateDisplay();
+                    break;
+                case cls.contains('operator'):
+                    break;
+                case cls.contains('clear'):
+                    resetCalculator();
+                    break;
+                case cls.contains('sign'):
+                    break;
+                case cls.contains('percent'):
+                    break;
+                case cls.contains('decimal'):
+                    break;
+                case cls.contains('backspace'):
+                    break;
+                case cls.contains('enter'):
+                    break;
+            };
+        });
     };
 };
 
 clickButton();
+
+
 
 function operate()
 {
