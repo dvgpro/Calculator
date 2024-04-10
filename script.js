@@ -12,18 +12,30 @@ function updateDisplay()
 
 updateDisplay();
 
+
 function clickButton()
 {
     for (let i=0; i<buttons.length; i++)
     {
-        buttons[i].addEventListener('click', function()
+        switch (buttons[i].classList)
         {
-            if (buttons[i].classList.contains('operand'))
-            {
-                getInput();
-                updateDisplay();
-            };
-        });
+            case 'operand':
+                break;
+            case 'operator':
+                break;
+            case 'clear':
+                break;
+            case 'sign':
+                break;
+            case 'percent':
+                break;
+            case 'decimal':
+                break;
+            case 'backspace':
+                break;
+            case 'enter':
+                break;
+        };
     };
 };
 
