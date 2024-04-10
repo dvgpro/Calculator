@@ -19,27 +19,26 @@ function clickButton()
     {
         buttons[i].addEventListener('click', function()
         {
-            var cls = this.classList;
             switch (true)
             {
-                case cls.contains('operand'):
+                case this.classList.contains('operand'):
                     getOperands(buttons[i].value);
                     updateDisplay();
                     break;
-                case cls.contains('operator'):
+                case this.classList.contains('operator'):
                     break;
-                case cls.contains('clear'):
+                case this.classList.contains('clear'):
                     resetCalculator();
                     break;
-                case cls.contains('sign'):
+                case this.classList.contains('sign'):
                     break;
-                case cls.contains('percent'):
+                case this.classList.contains('percent'):
                     break;
-                case cls.contains('decimal'):
+                case this.classList.contains('decimal'):
                     break;
-                case cls.contains('backspace'):
+                case this.classList.contains('backspace'):
                     break;
-                case cls.contains('enter'):
+                case this.classList.contains('enter'):
                     break;
             };
         });
@@ -48,7 +47,31 @@ function clickButton()
 
 clickButton();
 
-
+function getOperands(value)
+{
+    if (operand1==null || operator==null)
+    {
+        if (displayValue==0||displayValue=='0')
+        {
+            displayValue = value
+        }
+        else
+        {
+        displayValue += value;
+        };
+        operand1 = displayValue;
+    }
+    else if (operand1!=null && operator!=null)
+        if (displayValue==0||displayValue=='0')
+        {
+            displayValue = value
+        }
+        else
+        {
+            displayValue += value;
+        };
+    operand2 = displayValue;
+};
 
 function operate()
 {
@@ -74,9 +97,9 @@ function operate()
 
 function resetCalculator()
 {
-    let displayValue = 0;
-    let operator = null;
-    let operand1 = null;
-    let operand2 = null;
+    displayValue = 0;
+    operator = null;
+    operand1 = null;
+    operand2 = null;
     updateDisplay();
 };
