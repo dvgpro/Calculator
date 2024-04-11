@@ -110,7 +110,10 @@ function getOperator(value)
 
 function evaluateEquation()
 {
-    
+    displayValue = operate(operator, Number(operand1), Number(operand2));
+    operand1 = displayValue;
+    operand2 = null;
+    updateDisplay();
 };
 
 function resetCalculator()
