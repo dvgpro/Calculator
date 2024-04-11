@@ -37,6 +37,8 @@ function clickButton()
                     updateDisplay();
                     break;
                 case this.classList.contains('percent'):
+                    getPercentage();
+                    updateDisplay();
                     break;
                 case this.classList.contains('decimal'):
                     break;
@@ -129,6 +131,17 @@ function negateNumber()
         operand1 = displayValue;
     } else if(displayValue===operand2){
         displayValue *= -1;
+        operand2 = displayValue;
+    };
+};
+
+function getPercentage()
+{
+    if(displayValue===operand1){
+        displayValue /= 100;
+        operand1 = displayValue;
+    } else if(displayValue===operand2){
+        displayValue /= 100;
         operand2 = displayValue;
     };
 };
