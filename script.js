@@ -8,7 +8,13 @@ const buttons = document.querySelectorAll('button');
 function updateDisplay()
 {
     const displayBox = document.querySelector('.display');
-    displayBox.textContent = currentValue;
+    if (currentValue.toString().length > 10){
+        displayBox.textContent = roundNumber(currentValue);
+        currentValue = parseFloat(currentValue).toFixed(9);
+    }else if(currentValue.toString().length <= 10){
+        
+        displayBox.textContent = parseFloat(currentValue).toPrecision();
+    };
 };
 
 updateDisplay();
@@ -137,7 +143,7 @@ function getOperator(value)
 function evaluateEquation()
 {
     currentValue = operate(operator, parseFloat(firstOperand), parseFloat(secondOperand ));
-    firstOperand = parseFloat(currentValue);
+    firstOperand = currentValue;
     secondOperand  = 0;
     updateDisplay();
 };
@@ -181,7 +187,7 @@ function resetCalculator()
     updateDisplay();
 };
 
-function roundDecimal(num)
+function roundNumber(num)
 {
-    
+    return parseFloat(num).toExponential(2);
 };
