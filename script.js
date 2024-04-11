@@ -82,10 +82,6 @@ function assignOperand()
         };
         secondOperand = currentValue;
     };
-    console.log("Current:" + currentValue);
-    console.log("first:" + firstOperand);
-    console.log(operator);
-    console.log("second:" + secondOperand);
 };
 
 function operate(operator, operand1, operand2)
