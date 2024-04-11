@@ -76,6 +76,7 @@ function assignOperand()
     };
     console.log("Current:" + currentValue);
     console.log("first:" + firstOperand);
+    console.log(operator);
     console.log("second:" + secondOperand);
 };
 
@@ -116,14 +117,13 @@ function operate(operator, operand1, operand2)
 
 function getOperands(value)
 {
-    if(currentValue===.0 || currentValue===".0"){
+    if( currentValue.toString()===".0"){
         currentValue+=value;
-    }else if(currentValue===0 || currentValue==='0'){
+    }else if(currentValue.toString()==='0'){
         currentValue=value;
     }else{
         currentValue+=value;
     };
-
 };
 
 function getOperator(value)
