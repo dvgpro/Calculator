@@ -5,10 +5,15 @@ let secondOperand = null;
 
 const buttons = document.querySelectorAll('button');
 
+
+
 function updateDisplay()
 {
     const displayBox = document.querySelector('.display');
-    if (currentValue.toString().length > 10){
+    if (currentValue===null || currentValue===NaN || currentValue===undefined){
+        displayBox.textContent=0
+        currentValue=0;
+    }else if (currentValue.toString().length > 10){
         displayBox.textContent = roundNumber(currentValue);
         currentValue = parseFloat(currentValue).toFixed(9);
     }else if(currentValue.toString().length <= 10){  
@@ -131,6 +136,7 @@ function getOperator(value)
 
 function evaluateEquation()
 {
+
     currentValue = operate(operator, parseFloat(firstOperand), parseFloat(secondOperand ));
     firstOperand = currentValue;
     secondOperand  = 0;
@@ -160,7 +166,7 @@ function removeValue()
 {
     if (currentValue===0 || currentValue==="0"){
         currentValue;
-    } else if (currentValue.length==1){
+    } else if (currentValue.length===1){
         currentValue=0;
     }else{
         currentValue = currentValue.toString().slice(0,-1);
