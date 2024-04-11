@@ -28,7 +28,6 @@ function clickButton()
                 case this.classList.contains('operator'):
                     getOperator(buttons[i].value);
                     displayValue=0;
-                    updateDisplay();
                     break;
                 case this.classList.contains('clear'):
                     resetCalculator();
@@ -105,6 +104,9 @@ function getOperands(value)
 
 function getOperator(value)
 {
+    if (operator!=null){
+        evaluateEquation();
+    };
     operator=value;
 };
 
@@ -124,3 +126,8 @@ function resetCalculator()
     operand2 = null;
     updateDisplay();
 };
+
+function roundDecimal(num)
+{
+    return Math.round((num*Number.EPSILON)*1000)/1000
+}
