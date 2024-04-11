@@ -11,9 +11,8 @@ function updateDisplay()
     if (currentValue.toString().length > 10){
         displayBox.textContent = roundNumber(currentValue);
         currentValue = parseFloat(currentValue).toFixed(9);
-    }else if(currentValue.toString().length <= 10){
-        
-        displayBox.textContent = parseFloat(currentValue).toPrecision();
+    }else if(currentValue.toString().length <= 10){  
+        displayBox.textContent = currentValue;
     };
 };
 
@@ -51,9 +50,9 @@ function clickButton()
                     assignOperand();
                     break;
                 case this.classList.contains('decimal'):
-                    addDecimal(buttons[i].value);
-                    updateDisplay();
+                    addDecimal(buttons[i].value);  
                     assignOperand();
+                    updateDisplay();
                     break;
                 case this.classList.contains('backspace'):
                     removeValue();
@@ -123,9 +122,7 @@ function operate(operator, operand1, operand2)
 
 function getOperands(value)
 {
-    if( currentValue.toString()===".0"){
-        currentValue+=value;
-    }else if(currentValue.toString()==='0'){
+    if(currentValue.toString()==='0'){
         currentValue=value;
     }else{
         currentValue+=value;
