@@ -77,6 +77,9 @@ function assignOperand()
     if (operator==null){
         firstOperand = currentValue;
     } else if(operator!=null){
+        if (firstOperand===null){
+            firstOperand=0;
+        };
         secondOperand = currentValue;
     };
     console.log("Current:" + currentValue);
