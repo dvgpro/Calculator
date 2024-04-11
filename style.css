@@ -1,16 +1,23 @@
 body
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: monospace;
     background-color: #282828;
 }
 
+h1
+{
+    color: azure;
+    font-size: 75px;
+    margin: 25px;
+}
+
+
 .calculator
 {
-    height: 700px;
-    width: 400px;
     border-style: solid;
     border-color: black;
     border-width: 10px;
@@ -25,8 +32,8 @@ body
 
 .display
 {
-    width: 375px;
-    height: 70px;
+    width: 400px;
+    height: 80px;
     background-color: lightgrey;
     color: rgb(65, 65, 65);
     display: flex;
@@ -36,13 +43,14 @@ body
     font-weight: 500;
     color: black;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .main
 {
     display: flex;
-    width: 350px;
-    height: 430px;
+    width: 400px;
+    height: auto;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -50,20 +58,19 @@ body
 
 button
 {
-    height: 70px;
-    width: 75px;
-    border-radius: 15px;
-    border-color: black;
-    border-style: solid;
-    border-width: 3px;
-    margin: 0px;
-    font-size: 40px;
-    margin: 5px;
+    width: 90px;
+    height: 60px;
+   font-size: 45px;
+   border-style: solid;
+   border-width: 2px;
+   border-radius: 15px;
+   border-color: black;
+   margin: 3px;
 }
 
 .enter-container
 {
-    width: 85%;
+    width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -71,7 +78,32 @@ button
 
 .enter
 {
-    border-radius: 10px;
+    border-radius: 15px;
     width: 120px;
-    height: 60px;
+    margin: 10px;
+}
+
+.operand
+{
+    background-color: rgb(62, 238, 229);
+}
+
+.special-btn
+{
+    background-color: rgb(101, 224, 107);
+}
+
+.operator
+{
+    background-color: rgb(245, 85, 85);
+}
+
+.operation-btn
+{
+    background-color: rgb(245, 185, 75);
+}
+
+.enter
+{
+    background-color: rgb(63, 165, 224);
 }
