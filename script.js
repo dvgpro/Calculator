@@ -33,6 +33,8 @@ function clickButton()
                     resetCalculator();
                     break;
                 case this.classList.contains('sign'):
+                    negateNumber();
+                    updateDisplay();
                     break;
                 case this.classList.contains('percent'):
                     break;
@@ -120,6 +122,17 @@ function evaluateEquation()
     updateDisplay();
 };
 
+function negateNumber()
+{
+    if(displayValue===operand1){
+        displayValue *= -1;
+        operand1 = displayValue;
+    } else if(displayValue===operand2){
+        displayValue *= -1;
+        operand2 = displayValue;
+    };
+};
+
 function resetCalculator()
 {
     displayValue = 0;
@@ -132,4 +145,4 @@ function resetCalculator()
 function roundDecimal(num)
 {
     return Math.round(num*1000)/1000;
-}
+};
