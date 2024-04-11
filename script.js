@@ -9,7 +9,7 @@ const buttons = document.querySelectorAll('button');
 function updateDisplay()
 {
     if (displayValue.length>10){
-        displayValue = displayValue[1, 10];
+        displayValue = displayValue[0, 90];
     };
     displayBox.textContent = displayValue;
 };
@@ -127,8 +127,8 @@ function evaluateEquation()
     displayValue = operate(operator, Number(operand1), Number(operand2));
     if ((Number(displayValue)) - Math.floor(Number(displayValue)) !== 0)
     {
-        displayValue = roundDecimal(displayValue)
-    }
+        displayValue = roundDecimal(displayValue);
+    };
     operand1 = displayValue;
     operand2 = null;
     updateDisplay();
@@ -179,10 +179,10 @@ function removeValue()
         displayValue=0;
     }else{
         if(displayValue===operand1){
-            displayValue = (displayValue / 10 ^ 0);
+            displayValue = displayValue.toString().slice(0,-1);
             operand1 = displayValue;
         } else if(displayValue===operand2){
-            displayValue = (displayValue / 10 ^ 0);
+            displayValue = displayValue.toString().slice(0,-1);
             operand2 = displayValue;
         };
     };
