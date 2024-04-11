@@ -88,9 +88,19 @@ button
     background-color: rgb(62, 238, 229);
 }
 
+.operand:active
+{
+    background-color: rgb(150, 235, 230);
+}
+
 .special-btn
 {
-    background-color: rgb(101, 224, 107);
+    background-color: rgb(100, 225, 110);
+}
+
+.special-btn:active
+{
+    background-color: rgb(145, 220, 145);
 }
 
 .operator
@@ -98,12 +108,27 @@ button
     background-color: rgb(245, 85, 85);
 }
 
+.operator:focus
+{
+    background-color: rgb(240, 140, 140);
+}
+
 .operation-btn
 {
     background-color: rgb(245, 185, 75);
 }
 
+.operation-btn:active
+{
+    background-color: rgb(240, 200, 120);
+}
+
 .enter
 {
-    background-color: rgb(63, 165, 224);
+    background-color: rgb(65, 165, 225);
+}
+
+.enter:active
+{
+    background-color: rgb(105, 175, 220);
 }
