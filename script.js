@@ -8,6 +8,9 @@ const buttons = document.querySelectorAll('button');
 
 function updateDisplay()
 {
+    if (displayValue.length>10){
+        displayValue = displayValue[1, 10];
+    };
     displayBox.textContent = displayValue;
 };
 
@@ -45,6 +48,8 @@ function clickButton()
                     updateDisplay();
                     break;
                 case this.classList.contains('backspace'):
+                    removeValue();
+                    updateDisplay();
                     break;
                 case this.classList.contains('enter'):
                     evaluateEquation();
@@ -162,6 +167,23 @@ function addDecimal(dot)
         };
     };
 };
+
+function removeValue()
+{
+    if (displayValue===0 || displayValue==="0"){
+        displayValue;
+    } else if (displayValue.length==1){
+        displayValue=0;
+    }else{
+        if(displayValue===operand1){
+            displayValue = (displayValue / 10 ^ 0);
+            operand1 = displayValue;
+        } else if(displayValue===operand2){
+            displayValue = (displayValue / 10 ^ 0);
+            operand2 = displayValue;
+        };
+    }
+}
 
 function resetCalculator()
 {
