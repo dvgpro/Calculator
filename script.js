@@ -125,7 +125,10 @@ function getOperator(value)
 function evaluateEquation()
 {
     displayValue = operate(operator, Number(operand1), Number(operand2));
-    displayValue = roundDecimal(Number(displayValue));
+    if ((Number(displayValue)) - Math.floor(Number(displayValue)) !== 0)
+    {
+        displayValue = roundDecimal(displayValue)
+    }
     operand1 = displayValue;
     operand2 = null;
     updateDisplay();
