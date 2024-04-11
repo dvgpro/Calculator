@@ -2,7 +2,7 @@ let displayValue = 0;
 let operator = null;
 let operand1 = null;
 let operand2 = null;
-let total = null;
+
 const displayBox = document.querySelector('.display');
 const buttons = document.querySelectorAll('button');
 
@@ -102,7 +102,7 @@ function getOperands(value)
             displayValue=value;
         }else{
             displayValue+=value;
-        }
+        };
         operand1 = displayValue;
     }else if(operator!=null){
         if(displayValue==0 || displayValue=="0"){
@@ -182,8 +182,8 @@ function removeValue()
             displayValue = (displayValue / 10 ^ 0);
             operand2 = displayValue;
         };
-    }
-}
+    };
+};
 
 function resetCalculator()
 {
