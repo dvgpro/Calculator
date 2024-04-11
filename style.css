@@ -35,6 +35,7 @@ body
     font-size: 55px;
     font-weight: 500;
     color: black;
+    overflow: hidden;
 }
 
 .main
