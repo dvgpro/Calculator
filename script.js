@@ -69,8 +69,9 @@ function operate(operator, operand1, operand2)
             break;
         case '/':
             if (operand2==0) {
-                alert("Halt! You've violated the law!");
                 resetCalculator();
+                alert("Halt! You've violated the law!");
+                return 0;
             }else{
                 operateTotal = operand1 / operand2;
                 return operateTotal;
@@ -113,6 +114,7 @@ function getOperator(value)
 function evaluateEquation()
 {
     displayValue = operate(operator, Number(operand1), Number(operand2));
+    displayValue = roundDecimal(Number(displayValue));
     operand1 = displayValue;
     operand2 = null;
     updateDisplay();
@@ -129,5 +131,5 @@ function resetCalculator()
 
 function roundDecimal(num)
 {
-    return Math.round((num*Number.EPSILON)*1000)/1000
+    return Math.round(num*1000)/1000;
 }
