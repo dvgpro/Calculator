@@ -13,7 +13,6 @@ function updateDisplay()
 
 updateDisplay();
 
-
 function clickButton()
 {
     for (let i=0; i<buttons.length; i++)
@@ -52,16 +51,6 @@ function clickButton()
 
 clickButton();
 
-function getOperands(value)
-{
-
-};
-
-function getOperator(value)
-{
-    operator=value;
-};
-
 function operate(operator, operand1, operand2)
 {
     let operateTotal=0;
@@ -81,7 +70,7 @@ function operate(operator, operand1, operand2)
             break;
         case '/':
             if (operand2==0) {
-                alert("Halt you've violated the law");
+                alert("Halt! You've violated the law!");
                 resetCalculator();
             }else{
                 operateTotal = operand1 / operand2;
@@ -93,6 +82,16 @@ function operate(operator, operand1, operand2)
             return operateTotal;
             break;
     };
+};
+
+function getOperands(value)
+{
+    
+};
+
+function getOperator(value)
+{
+    operator=value;
 };
 
 function evaluateEquation()
