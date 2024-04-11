@@ -41,6 +41,8 @@ function clickButton()
                     updateDisplay();
                     break;
                 case this.classList.contains('decimal'):
+                    addDecimal(buttons[i].value);
+                    updateDisplay();
                     break;
                 case this.classList.contains('backspace'):
                     break;
@@ -143,6 +145,21 @@ function getPercentage()
     } else if(displayValue===operand2){
         displayValue /= 100;
         operand2 = displayValue;
+    };
+};
+
+function addDecimal(dot)
+{
+    if ((Number(displayValue)) - Math.floor(Number(displayValue)) !== 0){
+        displayValue;
+    }else{
+        if(displayValue===operand1){
+            displayValue += dot;
+            operand1 = displayValue;
+        } else if(displayValue===operand2){
+            displayValue += dot;
+            operand2 = displayValue;
+        };
     };
 };
 
