@@ -86,22 +86,17 @@ function assignOperand()
 };
 
 function operate(operator, operand1, operand2)
-{
-    let operateTotal=0;
-    
+{ 
     switch(operator)
     {
         case '+':
-            operateTotal = operand1 + operand2;
-            return operateTotal;
+            return operand1 + operand2; 
             break;
         case '-':
-            operateTotal = operand1 - operand2;
-            return operateTotal;
+            return operand1 - operand2; 
             break;
         case '*':
-            operateTotal = operand1 * operand2
-            return operateTotal;
+            return operand1 * operand2
             break;
         case '/':
             if (operand2==0) {
@@ -109,13 +104,11 @@ function operate(operator, operand1, operand2)
                 alert("Halt! You've violated the law!");
                 return 0;
             }else{
-                operateTotal = operand1 / operand2;
-                return operateTotal;
+                return operand1 / operand2;
             };
             break;
         case '^':
-            operateTotal = operand1 ** operand2;
-            return operateTotal;
+            return operand1 ** operand2;
             break;
     };
 };
