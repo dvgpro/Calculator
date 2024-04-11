@@ -28,7 +28,7 @@ function clickButton()
                 case this.classList.contains('operator'):
                     getOperator(buttons[i].value);
                     displayValue=0;
-                    updateDisplay;
+                    updateDisplay();
                     break;
                 case this.classList.contains('clear'):
                     resetCalculator();
@@ -86,7 +86,21 @@ function operate(operator, operand1, operand2)
 
 function getOperands(value)
 {
-    
+    if (operator==null){
+        if(displayValue==0 || displayValue=="0"){
+            displayValue=value;
+        }else{
+            displayValue+=value;
+        }
+        operand1 = displayValue;
+    }else if(operator!=null){
+        if(displayValue==0 || displayValue=="0"){
+            displayValue=value;
+        }else{
+            displayValue+=value;
+        }
+        operand2 = displayValue;
+    };
 };
 
 function getOperator(value)
@@ -96,7 +110,7 @@ function getOperator(value)
 
 function evaluateEquation()
 {
-
+    
 };
 
 function resetCalculator()
