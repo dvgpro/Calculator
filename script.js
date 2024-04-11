@@ -1,17 +1,14 @@
-let displayValue = 0;
+let currentValue = 0;
 let operator = null;
-let operand1 = null;
-let operand2 = null;
+let firstOperand = null;
+let secondOperand = null;
 
-const displayBox = document.querySelector('.display');
 const buttons = document.querySelectorAll('button');
 
 function updateDisplay()
 {
-    if (displayValue.length>10){
-        displayValue = displayValue[0, 90];
-    };
-    displayBox.textContent = displayValue;
+    const displayBox = document.querySelector('.display');
+    displayBox.textContent = currentValue;
 };
 
 updateDisplay();
@@ -27,10 +24,12 @@ function clickButton()
                 case this.classList.contains('operand'):
                     getOperands(buttons[i].value);
                     updateDisplay();
+                    assignOperand();
                     break;
                 case this.classList.contains('operator'):
                     getOperator(buttons[i].value);
-                    displayValue=0;
+                    currentValue=0
+                    assignOperand();
                     break;
                 case this.classList.contains('clear'):
                     resetCalculator();
@@ -38,32 +37,52 @@ function clickButton()
                 case this.classList.contains('sign'):
                     negateNumber();
                     updateDisplay();
+                    assignOperand();
                     break;
                 case this.classList.contains('percent'):
                     getPercentage();
                     updateDisplay();
+                    assignOperand();
                     break;
                 case this.classList.contains('decimal'):
                     addDecimal(buttons[i].value);
                     updateDisplay();
+                    assignOperand();
                     break;
                 case this.classList.contains('backspace'):
                     removeValue();
                     updateDisplay();
+                    assignOperand();
                     break;
                 case this.classList.contains('enter'):
                     evaluateEquation();
+                    operator=null;
+                    assignOperand();
                     break;
             };
+            
         });
     };
 };
 
 clickButton();
 
+function assignOperand()
+{
+    if (operator==null){
+        firstOperand = currentValue;
+    } else if(operator!=null){
+        secondOperand = currentValue;
+    };
+    console.log("Current:" + currentValue);
+    console.log("first:" + firstOperand);
+    console.log("second:" + secondOperand);
+};
+
 function operate(operator, operand1, operand2)
 {
     let operateTotal=0;
+    
     switch(operator)
     {
         case '+':
@@ -97,21 +116,14 @@ function operate(operator, operand1, operand2)
 
 function getOperands(value)
 {
-    if (operator==null){
-        if(displayValue==0 || displayValue=="0"){
-            displayValue=value;
-        }else{
-            displayValue+=value;
-        };
-        operand1 = displayValue;
-    }else if(operator!=null){
-        if(displayValue==0 || displayValue=="0"){
-            displayValue=value;
-        }else{
-            displayValue+=value;
-        }
-        operand2 = displayValue;
+    if(currentValue===.0 || currentValue===".0"){
+        currentValue+=value;
+    }else if(currentValue===0 || currentValue==='0'){
+        currentValue=value;
+    }else{
+        currentValue+=value;
     };
+
 };
 
 function getOperator(value)
@@ -124,80 +136,52 @@ function getOperator(value)
 
 function evaluateEquation()
 {
-    displayValue = operate(operator, Number(operand1), Number(operand2));
-    if ((Number(displayValue)) - Math.floor(Number(displayValue)) !== 0)
-    {
-        displayValue = roundDecimal(displayValue);
-    };
-    operand1 = displayValue;
-    operand2 = null;
+    currentValue = operate(operator, parseFloat(firstOperand), parseFloat(secondOperand ));
+    firstOperand = parseFloat(currentValue);
+    secondOperand  = 0;
     updateDisplay();
 };
 
 function negateNumber()
 {
-    if(displayValue===operand1){
-        displayValue *= -1;
-        operand1 = displayValue;
-    } else if(displayValue===operand2){
-        displayValue *= -1;
-        operand2 = displayValue;
-    };
+    currentValue *= -1;
 };
 
 function getPercentage()
 {
-    if(displayValue===operand1){
-        displayValue /= 100;
-        operand1 = displayValue;
-    } else if(displayValue===operand2){
-        displayValue /= 100;
-        operand2 = displayValue;
-    };
+    currentValue /= 100;
 };
 
 function addDecimal(dot)
 {
-    if ((Number(displayValue)) - Math.floor(Number(displayValue)) !== 0){
-        displayValue;
+    if (currentValue.toString().includes('.')){
+        currentValue;
     }else{
-        if(displayValue===operand1){
-            displayValue += dot;
-            operand1 = displayValue;
-        } else if(displayValue===operand2){
-            displayValue += dot;
-            operand2 = displayValue;
-        };
+        currentValue += dot;
     };
 };
 
 function removeValue()
 {
-    if (displayValue===0 || displayValue==="0"){
-        displayValue;
-    } else if (displayValue.length==1){
-        displayValue=0;
+    if (currentValue===0 || currentValue==="0"){
+        currentValue;
+    } else if (currentValue.length==1){
+        currentValue=0;
     }else{
-        if(displayValue===operand1){
-            displayValue = displayValue.toString().slice(0,-1);
-            operand1 = displayValue;
-        } else if(displayValue===operand2){
-            displayValue = displayValue.toString().slice(0,-1);
-            operand2 = displayValue;
-        };
+        currentValue = currentValue.toString().slice(0,-1);
     };
 };
 
 function resetCalculator()
 {
-    displayValue = 0;
+    currentValue = 0;
     operator = null;
-    operand1 = null;
-    operand2 = null;
+    firstOperand = null;
+    secondOperand = null;
     updateDisplay();
 };
 
 function roundDecimal(num)
 {
-    return Math.round(num*1000)/1000;
+    
 };
